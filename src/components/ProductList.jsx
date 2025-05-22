@@ -17,13 +17,19 @@ const products = [
     { id: 10, name: '무드등 가습기', price: 69000, img: '/sample.png' },
     { id: 11, name: '라면 5개입', price: 5500, img: '/sample.png' },
     { id: 12, name: '고양이 사료 2kg', price: 29000, img: '/sample.png' },
-];
+].map((item) => ({ ...item, img: `/${item.id.toString().padStart(2, '0')}.png` }));
 
 //TODO: ProductList 컴포넌트를 완성하세요.
 //ProductCard 컴포넌트를 사용하여 각 상품을 렌더링하세요.
 //ProductCard 컴포넌트를 확인하여 props를 전달하세요.
 const ProductList = ({ addToCart }) => {
-    return <div className="product-list"></div>;
+    return (
+        <div className="product-list">
+            {products.map((item) => (
+                <ProductCard key={item.id} product={item} addToCart={addToCart} />
+            ))}
+        </div>
+    );
 };
 
 export default ProductList;
