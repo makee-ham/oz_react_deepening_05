@@ -19,6 +19,8 @@ const products = [
     { id: 12, name: '고양이 사료 2kg', price: 29000, img: '/sample.png' },
 ];
 
+products.map((item) => (item.img = `/${String(item.id).padStart(2, 0)}.png`));
+
 //TODO: ProductList 컴포넌트를 완성하세요.
 //ProductCard 컴포넌트를 사용하여 각 상품을 렌더링하세요.
 //ProductCard 컴포넌트를 확인하여 props를 전달하세요.
