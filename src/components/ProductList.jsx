@@ -25,7 +25,13 @@ products.map((item) => (item.img = `/${String(item.id).padStart(2, 0)}.png`));
 //ProductCard 컴포넌트를 사용하여 각 상품을 렌더링하세요.
 //ProductCard 컴포넌트를 확인하여 props를 전달하세요.
 const ProductList = ({ addToCart }) => {
-    return <div className="product-list"></div>;
+    return (
+        <div className="product-list">
+            {products.map((product) => (
+                <ProductCard addToCart={addToCart} product={product} />
+            ))}
+        </div>
+    );
 };
 
 export default ProductList;
